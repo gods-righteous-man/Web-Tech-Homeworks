@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
+</head>
+<body style="margin: 0px; font-family: Comfortaa;">
+
+	<ul class = 'nav'>
+		<li><a href="Randomfile.html">Home</a></li>
+		<li><a href="page2.html">Explore</a></li>
+		<li><a href="page2.html">Contact</a></li>
+	</ul>
+
+	<div class = 'banner'>
+		<img class = 'banner-image' src="images/rodeo-drive.jpg" alt="">
+		<div class = 'centered'>LA - The city of Angels</div>
+		
+		
+	</div>
+	
+	<div class="tab1cards" id = "tab1cards" >
+		<div  id = "cards" >
+			<div class = "imm" id ="imm" style="color:black; background-color: black; text-align: justify;"></div>
+		</div>
+	</div>
+	
+	
+	
+	<script type="text/javascript">
+		fetch('data.json')
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function(data) {
+				appendData(data);
+				appendData3(data);
+				appendData4(data);
+			})
+			.catch(function (err) {
+				console.log('error: ' + err);
+			});
+		function appendData(data){
+			var maincontainer = document.getElementById("imm");
+			for (var i=0; i < data.section2.length; i++){
+				var div = document.createElement("div");
+				var record = '<div class = "card" style = "color : white;">';
+				record = record + '<img class = "card-img" src =images/' + data.section2[i].image + '>';
+				record = record + '<div class = "container">';
+				record = record + data.section2[i].heading;
+				record = record + '<p class = "card-text">' + data.section2[i].text + '</p></div></div>';
+				div.innerHTML += record;
+				maincontainer.appendChild(div);
+				console.log(data.section2[i].image);
+			}
+
+			
+		}
+
+		function appendData3(data){
+			var mainContainer = document.getElementById("s3p");
+			var div = document.createElement("div");
+			var record = ""
+			for (var j = 0 ; j < data.section3.text.length; j++){
+				record += '<div>' + data.section3.text[j] + '</div><br />'		
+			}
+			div.innerHTML += record;
+			//var md = '<div class = "s3child" >' +  + '</div>'; 
+			mainContainer.appendChild(div);
+			console.log(data.section3.text[j])
+			
+		}
+
+		function appendData4(data){
+			console.log(data.section4);
+			var maincontainer = document.getElementById("section4");
+			for (var i=0; i < data.section4.length; i++){
+				var div = document.createElement("div");
+				var div2 = document.createElement("div")
+				var record = '<div class = "d1"><img class = "s4img" src = images/' + data.section4[i].image + '></div>'
+				record += '<div class =  "d2" style = "margin-left: 10px; text-align: justify"> <p><b>' + data.section4[i].heading + '</b></p> <div>';
+				record += '<div class =  "d2" style = "text-align: justify;"><p>' + data.section4[i].text + '</p> </div>';
+				div.innerHTML += record;
+				maincontainer.appendChild(div);
+			}
+		}
+
+		
+	</script>
+	<div class="section3" id = "section3">
+		<div  id= "s3child" style=" width: 50%;" >
+			<p id = "s3p" style="padding: 10%; padding-right: 0px; text-align: justify;"></p>
+		</div>
+		<div class="s3child" style="width: 50%;">
+			<img src ="images/lasky.png" style="height: 80%; width: 100%;"/>
+		</div>
+
+	</div>
+	<div class="section4" id = "section4">
+	
+	</div>
+
+
+	
+	
+	<div class = "footer">
+		<div class="flex-container">
+
+			<div class="flex-child magenta">
+			  <div class="lefttop" style="font-size: 20px; margin-top: 100px; margin-left: 100px; text-align: justify ; text-align: center;  width: 500px;">
+				  Tip the world over on its side and everything loose will land in los angeles.
+			  </div>
+			  <div class ="leftbottom" style="padding-top: 70px; font-size: 20px; margin-left: 100px; margin-top: -20px; text-align: justify ; text-align: center;">
+				  -Frank lloyd Wright
+			  </div>
+			</div>
+			
+			<div class="flex-child green" style="margin-right: 50px;">
+			  <div class="righttop" style="padding: 20px; font-size: 30px; margin-top: 80px; text-align: justify ; text-align: center; margin-left: -100px;">
+				  Designed By
+			  </div>
+			  <div class = "rightbottom" style="align-items: center; margin-left: -100px; text-align: justify ; text-align: center;">
+				  <div class="authname" style="padding: 2%;">
+						Gaurav Makasare
+				  </div>
+				  <ul class="footlist" style="font-size: 15px; list-style-type: none;">
+					  <li ><a href = "mailto: makasare@usc.edu" style="text-decoration:none !important; color: white;">makasare@usc.edu</a></li>
+					  <li> <a href="tel: +12135514535" style="text-decoration:none !important; color: white;">+12135514535</a></li>
+				  </ul>
+			  </div>
+			</div>
+			
+		  </div>
+	</div>
+</body>
+</html>

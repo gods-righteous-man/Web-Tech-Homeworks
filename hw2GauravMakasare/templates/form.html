@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <style type="text/css"> 
+            .container {
+                height: 500px;
+                width: 100%;
+                background-color: pink;
+                display: flex;
+                justify-content: center;
+                padding-top: 50px;
+            }
+            #btn {
+                color: white;
+                background-color: blue;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <script>
+            function empty() {
+                var x;
+                x = document.getElementById("age").value;
+                y = document.getElementById("weight").value;
+                if (x == "" || y == "") {
+                    alert("Fields are empty, enter valid inputs");
+                    return false;
+                };
+                // if (y == "") {
+                //     alert("Enter a Valid weight");
+                //     return false;
+                // };
+ 
+            }
+
+            function txtAge_onblur() {
+                var txtAge = document.getElementById("age").value;
+                function isNumeric(value) {
+                    return /^-?\d+$/.test(value);
+                }       
+                if (!isNumeric(txtAge))
+                {
+                    alert("Please Enter a number for the age field.");
+
+                    txtAge.focus();
+                    txtAge.select();
+                }
+            }
+
+
+            function txtwt_onblur() {
+                var txtwt = document.getElementById("weight").value;
+                function isNumeric(value) {
+                    return /^-?\d+$/.test(value);
+                }
+                if (!isNumeric(txtwt))
+                {
+                    alert("Please Enter a number for the weight field.");
+                    txtwt.focus();
+                    txtwt.select();
+                }
+            }
+
+            
+        </script>
+        
+        <form action="", method="POST" NAME=form1>
+            <div class="container">
+                <div class = "mainform">
+                    <h1>Blood Pressure Predictor</h2>
+                    <h4>Fill out the form to get your Blood Pressure estimate!</h4>
+                    <label for="age">Age * </label>
+                    <input type="number" id="age" name="age" value="" min="1" onblur="txtAge_onblur()" placeholder="Enter age in years" required> <br /><br />
+                    <label for="Weight" >Weight * </label>
+                    <input type="number" id = "weight" name="weight" value="" min="1" onblur="txtwt_onblur()" placeholder="Enter weight in kg"><br /><br />
+                    <input type="submit" value="Submit" id="btn" onClick="return empty()">
+            </div>
+            </div>
+        </form>
+        {% if reqval %}
+        <p>Your Requested value is {{reqval}}</p>
+        {% endif %}
+    </body>
+</html>

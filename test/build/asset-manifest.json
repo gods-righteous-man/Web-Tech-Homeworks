@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/finVsfinChallenge/static/css/main.59584788.css",
+    "main.js": "/finVsfinChallenge/static/js/main.f5f8585b.js",
+    "static/js/787.e8587000.chunk.js": "/finVsfinChallenge/static/js/787.e8587000.chunk.js",
+    "index.html": "/finVsfinChallenge/index.html",
+    "main.59584788.css.map": "/finVsfinChallenge/static/css/main.59584788.css.map",
+    "main.f5f8585b.js.map": "/finVsfinChallenge/static/js/main.f5f8585b.js.map",
+    "787.e8587000.chunk.js.map": "/finVsfinChallenge/static/js/787.e8587000.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59584788.css",
+    "static/js/main.f5f8585b.js"
+  ]
+}
